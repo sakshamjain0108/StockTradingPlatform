@@ -1,0 +1,112 @@
+.navbar{
+    border-bottom: 1px solid #f3f3f3;
+    display: flex;
+    background-color: #fff;
+    justify-content: space-around;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 70px;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+.options-navbar{
+    display: flex;
+    width: 35%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+.options-navbar .options{
+    margin-bottom: 0.8rem;
+    text-decoration: none;
+    font-size: 14.5px;
+    color: #727272;
+    font-weight: 500;
+}
+.options-navbar i{
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+.logo-navbar img{
+    width: 130px;
+}
+
+.hamBurger-menu{
+    position: absolute;
+    top: 66px;
+    right: 15%;
+    background-color: #fff;
+    z-index: 120;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #f3f3f3;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    border-radius: 2px;
+    box-shadow:  4px 4px 10px 0px #727272;
+}
+.hamBurger-menu .apps{
+    display: flex;
+    margin-top: 2rem;
+}
+.hamBurger-menu .functions{
+    display: flex;
+    background-color: #fafafb;
+}
+.hamBurger-menu .apps .app{
+    margin-right: 4rem;
+    margin-left: 2rem;
+    text-align: center;
+}
+.hamBurger-menu .apps .app h6{
+    color: #858585;
+    font-size: 14px;
+}
+.hamBurger-menu .apps .app p{
+    font-size: 12px;
+    color: #b0b0b0;
+}
+.hamBurger-menu .apps .app img{
+    height: 48px;
+}
+.hamBurger-menu .functions .function{
+    margin-top: 3rem;
+    margin-left: 1rem;
+    margin-right: 2rem;
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: start; */
+    /* text-align: start; */
+}
+.hamBurger-menu .functions .function h4{
+    text-align: start;
+    margin-left: 33px;
+    font-size: 16px;
+    color: #343434;
+    margin-bottom: 1.1rem;
+}
+.hamBurger-menu .functions .function li,p{
+    list-style-type: none;
+    color: #858585;
+    font-size: 14px;
+    line-height: 25px;
+}
+.hamBurger-menu .functions .function-education div{
+    display: flex;
+}
+.hamBurger-menu .functions .function-education div div{
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+    margin-left: 2rem;
+}
+.hamBurger-menu .functions .function-education div div img{
+    height: 30px;
+    width: 35px;
+    margin-bottom: 1rem;
+}

@@ -1,0 +1,38 @@
+.education{
+    display: flex;
+    margin-top: 10rem;
+    justify-content: center;
+    /* align-items: center; */
+    font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: #424242;
+}
+.image-education{
+    margin-right: 8rem;
+    margin-left: 12rem;
+}
+.text-education{
+    margin-right: 12rem;
+    margin-top: 2rem;
+}
+.h2-education{
+    margin-bottom: 2rem;
+}
+.para1-education{
+    margin-bottom: 2rem;
+}
+.education p{
+    font-size: 1.05rem;
+    color: #424242;
+}
+.education a{
+    text-decoration: none;
+    color: #3e85d5;
+}
+.education a:hover{
+    color: rgb(10, 9, 9);
+}
+.education a i{
+    font-size: 0.8rem;
+}

@@ -1,0 +1,49 @@
+.stats{
+    font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: #424242;
+  /* margin-top: 7rem; */
+  margin-left: 5rem;
+  display: flex;
+  justify-content: center;
+}
+.text-stats{
+    margin-top: 7rem;
+    /* margin-right: 2rem; */
+}
+.image-stats{
+    height: 75%;
+    width: 80%;
+    margin-top: 7rem;
+}
+
+.h2-stats{
+    margin-bottom: 3rem;
+}
+.para-stats{
+    line-height: 30px;
+    margin-bottom: 2rem;
+    color: #424242;
+}
+.explore{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.stats a{
+    text-decoration: none;
+    color: #3e85d5;
+}
+.stats a i{
+    font-size: 0.8rem;
+}
+.explore a{
+    margin-right: 3rem;
+}
+.stats a:hover{
+    color: rgb(10, 9, 9);
+}
+.press-stats{
+    width: 70%;
+}

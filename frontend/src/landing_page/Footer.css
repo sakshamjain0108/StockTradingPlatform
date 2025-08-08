@@ -1,0 +1,86 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #f3f3f3;
+    background-color: #fafafb;
+    padding-top: 2rem;
+    padding-left: 13%;
+    padding-right: 10%;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+.footer-top{
+    display: flex;
+}
+.footer-social-media{
+    /* margin-left: 13%; */
+    width: 35%;
+    margin-right: 4%;
+}
+.footer-social-media p{
+    font-size: 0.8rem;
+}
+.footer-social-media img{
+    width: 10rem;
+    margin-bottom: 1.5rem;
+}
+.footer-social-media i{
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    font-weight: 200;
+}
+.footer-columns{
+    width: 30%;
+    margin-right: 3%;
+}
+.footer-columns a{
+    text-decoration: none;
+    color: #797777;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+.footer-columns a:hover{
+    color: #3e85d5;
+}
+.footer-columns li{
+    list-style-type: none;
+    margin-bottom: 1rem;
+}
+.footer-columns h3{
+    font-size: 1.25rem;
+    color: #505051;
+}
+.footer-desc{
+    margin-top: 3rem;
+    padding-right: 5%;
+}
+.footer-desc p{
+    font-size: 0.65rem;
+    line-height: 1.25rem;
+    color: #a4a2a4;
+}
+.footer-desc a{
+    text-decoration: none;
+    color: #3e85d5;
+}
+.footer-desc a:hover{
+    color: rgb(10, 9, 9);
+}
+.footer-links{
+    display: flex;
+    justify-content: space-evenly;
+    padding-right: 7rem;
+    padding-left: 4rem;
+    /* margin-top: 0.1rem; */
+}
+.footer-links a{
+    font-size: 0.75rem;
+    line-height: 3rem;
+    text-decoration: none;
+    color: #a4a4a4;
+    font-weight: 500;
+}
+.footer-links a:hover{
+    color: #3e85d5;
+}

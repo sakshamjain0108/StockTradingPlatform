@@ -1,0 +1,43 @@
+body{
+    overflow-x: hidden;
+}
+.pricing-home{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: #424242;
+  margin-left: 4.5rem;
+  margin-top: 7rem;
+} 
+.para-pricing-home{
+    font-size: 1rem;
+    color: #424242;
+}
+.price-box-home{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 1.5rem 2rem;
+    text-align: center;
+}
+.price-box-home h1{
+    margin-bottom: 2rem;
+}
+.text-price-home{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.pricing-home a{
+    text-decoration: none;
+    color: #3e85d5;
+}
+
+.pricing-home a:hover{
+    color: rgb(10, 9, 9);
+}
+.pricing-home a i{
+    font-size: 0.8rem;
+}

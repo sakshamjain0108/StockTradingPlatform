@@ -1,0 +1,28 @@
+.awards{
+    font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal; 
+}
+
+.list-awards{
+    display: flex;
+}
+.text-awards{
+    margin-top: 1.5rem;
+}
+.para-awards{
+    font-size: 1.1rem;
+    margin-right: 2.5rem;
+    margin-bottom: 2.5rem;
+    color: #424242;
+}
+.list-awards ul{
+    margin-right: 7rem;
+}
+.list-awards ul li{
+    margin-bottom: 1rem;
+}
+.press{
+    width: 90%;
+    margin-right: 500px;
+}
