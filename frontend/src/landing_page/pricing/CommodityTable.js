@@ -1,6 +1,6 @@
 function CommodityTable() {
     return ( 
-        <table>
+        <table className="pricing-table">
             <tr>
                 <th></th>
                 <th>Commodity futures</th>

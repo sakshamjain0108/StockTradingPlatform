@@ -1,6 +1,6 @@
 function CurrencyTable() {
     return ( 
-        <table>
+        <table className="pricing-table">
             <tr>
                 <th></th>
                 <th>Currency futures</th>

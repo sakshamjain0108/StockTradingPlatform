@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function EquityTable() {
     return ( 
-        <table>
+        <table className="pricing-table">
             <tr>
                 <th></th>
                 <th>Equity delivery</th>

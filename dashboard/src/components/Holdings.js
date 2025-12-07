@@ -1,84 +1,147 @@
+// C:\Users\sjsak\Desktop\Coding\StockTradingPlatform\dashboard\src\components\Holdings.js
+
 import React,{useEffect,useState,useContext} from "react";
-// import { holdings } from "../data/data.js";
-import { BuyContext } from "./WatchList.js";
+import { BuyContext } from "./GeneralContext.js"; 
 import BuyCard from "./BuyCard.js";
+import { io } from "socket.io-client";
+
 
 const Holdings = () => {
-  const {buy,ToggleBuyCard} = useContext(BuyContext);
+  const {buy, ToggleBuyCard, ToggleSellCard} = useContext(BuyContext);
   let [holdings,addHoldings] = useState([]);
   let url = "http://localhost:3002/allHoldings";
-  const fetchHoldings = async()=>{
-    let response = await fetch(url);
-    let data = await response.json();
-    addHoldings(data);
-  }
-  
+
   useEffect(() => {
+    const fetchHoldings = async () => {
+      let response = await fetch("http://localhost:3002/allHoldings", {
+        credentials: "include",
+      });
+      if (response.ok) {
+        let data = await response.json();
+        addHoldings(data);
+      }
+    };
     fetchHoldings();
+
+    const socket = io("http://localhost:3002");
+    socket.on('stockUpdates', (liveData) => {
+      addHoldings(prevHoldings => 
+        prevHoldings.map(holding => {
+          const liveUpdate = liveData.find(s => s.symbol === holding.name);
+          return liveUpdate ? { ...holding, price: liveUpdate.lastPrice } : holding;
+        })
+      );
+    });
+
+    return () => socket.disconnect();
   }, []);
+    
+  // --- New Calculations ---
+  const formatToINR = (num) => {
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(num);
+  };
+
+  const totalInvestment = holdings.reduce(
+    (acc, stock) => acc + stock.avg * stock.qty,
+    0
+  );
+  const currentValue = holdings.reduce(
+    (acc, stock) => acc + stock.price * stock.qty,
+    0
+  );
+  const totalPnL = currentValue - totalInvestment;
+  const pnlPercentage =
+    totalInvestment > 0 ? (totalPnL / totalInvestment) * 100 : 0;
+  
+  const pnlClass = totalPnL >= 0 ? "profit" : "loss";
+  
+  // --- End of New Calculations ---
 
   return (
     <>
       <h3 className="title">Holdings ({holdings.length})</h3>
 
       <div className="order-table">
-        <table>
-          <tr>
-            <th>Instrument</th>
-            <th>Qty.</th>
-            <th>Avg. cost</th>
-            <th>LTP</th>
-            <th>Cur. val</th>
-            <th>P&L</th>
-            <th>Net chg.</th>
-            <th>Day chg.</th>
-          </tr>
-
-          {holdings.map((stock,index)=>{
-            const curValue = stock.price * stock.qty;
-            const isProfit = curValue - stock.avg * stock.qty >=0.0;
-            const profitClass = isProfit ? "profit":"loss"; //to show diff colors for loss and prof
-            const dayClass = stock.isLoss?"loss":"profit";//to show diff colors for loss and prof
-
-            return(
+        {holdings.length>0?(
+          <table>
+            <thead>
               <tr>
-                <th key={index}>{stock.name}</th>
-                <td>{stock.qty}</td>
-                <td>{stock.avg.toFixed(2)}</td>
-                <td>{stock.price.toFixed(2)}</td>
-                <td>{curValue}</td>
-                <td className={profitClass}>{(curValue - stock.avg * stock.qty).toFixed(2)}</td>
-                <td className={profitClass}>{stock.net}</td>
-                <td className={dayClass}>{stock.day}</td>
+                <th>Instrument</th>
+                <th>Qty.</th>
+                <th>Avg. cost</th>
+                <th>LTP</th>
+                <th>Cur. val</th>
+                <th>P&L</th>
+                <th>Net chg. (%)</th> {/* <-- Changed header */}
+                {/* <th>Day chg.</th> <-- REMOVED */}
+                <th>Actions</th> 
               </tr>
-            )
-          })}
-          {/* {for (let i = 0; i < holdings.length; i++) {
-  const stock = holdings[i];
-  rows.push(<tr key={i}><td>{stock.name}</td>...</tr>);
-}} */}
-        </table>
+            </thead>
+            <tbody>
+              {holdings.map((stock,index)=>{
+                const curValue = (stock.price * stock.qty);
+                const investment = stock.avg * stock.qty;
+                const pnl = curValue - investment;
+                const isProfit = pnl >= 0.0;
+                const profitClass = isProfit ? "profit":"loss"; 
+
+                // --- THIS IS THE FIX ---
+                const pnlPercent = investment > 0 
+                  ? (pnl / investment) * 100 
+                  : 0;
+                // --- END OF FIX ---
+
+                return(
+                  <tr key={index}>
+                    <th>{stock.name}</th>
+                    <td>{stock.qty}</td>
+                    <td>{stock.avg.toFixed(2)}</td>
+                    <td>{stock.price.toFixed(2)}</td>
+                    <td>{curValue.toFixed(2)}</td>
+                    <td className={profitClass}>{pnl.toFixed(2)}</td>
+
+                    {/* Display the new P&L Percentage */}
+                    <td className={profitClass}>{pnlPercent.toFixed(2)}%</td>
+                    
+                    {/* Removed the 'Day chg.' cell */}
+                    
+                    <td>
+                      <button 
+                        className="sell" 
+                        onClick={() => ToggleSellCard(stock.name)}
+                      >
+                        Sell
+                      </button>
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        ):<p className="empty-message">You have no holdings yet.</p>}
       </div>
 
       <div className="row">
         <div className="col">
-          <h5>
-            29,875.<span>55</span>{" "}
-          </h5>
+          <h5>{formatToINR(totalInvestment)}</h5>
           <p>Total investment</p>
         </div>
         <div className="col">
-          <h5>
-            31,428.<span>95</span>{" "}
-          </h5>
+          <h5>{formatToINR(currentValue)}</h5>
           <p>Current value</p>
         </div>
         <div className="col">
-          <h5>1,553.40 (+5.20%)</h5>
+          <h5 className={pnlClass}>
+            {formatToINR(totalPnL)} ({pnlPercentage.toFixed(2)}%)
+          </h5>
           <p>P&L</p>
         </div>
       </div>
-      {/* {state?<BuyCard/>:null} */}
     </>
   );
 };

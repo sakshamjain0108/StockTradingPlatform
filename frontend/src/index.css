@@ -11,3 +11,786 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* --- Signup/Login Form Styles --- */
+
+.form_container {
+  /* This centers the form and gives it space from the navbar/footer */
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.form_container h2 {
+  text-align: center;
+  color: #444;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+.form_container form div {
+  margin-bottom: 20px;
+}
+
+.form_container label {
+  display: block;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.form_container input[type="email"],
+.form_container input[type="text"],
+.form_container input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /* This makes padding work correctly */
+  box-sizing: border-box; 
+}
+
+.form_container button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #387ed1; /* Zerodha-like blue */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.form_container button[type="submit"]:hover {
+  background-color: #2a6abf;
+}
+
+.form_container span {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: #888;
+}
+
+.form_container span a {
+  color: #387ed1;
+  text-decoration: none;
+}
+
+.form_container span a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* --- About Page Styles --- */
+
+/* Hero Section */
+.hero-about {
+  max-width: 1024px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.head-hero-about h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #444;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.head-hero-about hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 40px 0;
+}
+
+.desc-hero-about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.desc-hero-about p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0 0 15px 0;
+}
+
+/* Team Section */
+.team-container {
+  max-width: 1024px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.team-container > h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 40px;
+}
+
+/* CEO Section */
+.ceo-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 60px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 60px;
+}
+
+.ceo-image img {
+  max-width: 300px;
+  border-radius: 50%;
+}
+
+.ceo-bio h1 {
+  font-size: 2.2rem;
+  margin: 0 0 10px 0;
+  color: #444;
+}
+
+.ceo-bio h2 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #777;
+  margin: 0 0 20px 0;
+}
+
+.ceo-bio p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Team Grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px 40px;
+}
+
+.team-member-card {
+  text-align: center;
+}
+
+.team-member-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.team-member-name {
+  font-size: 1.3rem;
+  margin: 15px 0 5px 0;
+  color: #444;
+}
+
+.team-member-position {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #777;
+  margin: 0;
+}
+
+/* Find and REPLACE your old .bio-toggle rule */
+.bio-toggle {
+  cursor: pointer;
+  color: #387ed1;
+  margin-top: 15px;
+  font-weight: 500;
+  /* This allows the card's text-align:center to work */
+  display: inline-block; 
+}
+
+/* This is the NEW rule that fixes the alignment */
+.bio-toggle-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Adds space between "Bio" and the arrow */
+}
+
+.bio-toggle p {
+  margin: 0;
+}
+
+.bio-content {
+  font-size: 0.9rem;
+  text-align: left;
+  color: #555;
+  line-height: 1.5;
+  margin-top: 15px;
+}
+
+/* --- CEO Social Links Styling --- */
+.ceo-social-links a {
+  color: #387ed1; /* Zerodha blue */
+  text-decoration: none; /* No underline by default */
+  margin: 0 3px; /* Small space between links */
+}
+
+.ceo-social-links a:hover {
+  text-decoration: underline; /* Underline on hover */
+  color: #2a6abf; /* Slightly darker blue on hover */
+}
+
+.ceo-social-links span {
+  color: #555; /* Match the regular paragraph text color */
+}
+
+
+
+
+
+/* --- Products Page Styles --- */
+
+.products-page-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  /* padding: 0 20px; */
+}
+
+/* --- Hero Section --- */
+.products-hero-container {
+  text-align: center;
+  /* padding: 60px 0; */
+}
+
+.products-hero-container h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #444;
+  margin: 0 0 15px 0;
+}
+
+.products-hero-container h2 {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #555;
+  margin: 0 0 25px 0;
+}
+
+.products-hero-container .hero-links a {
+  color: #387ed1;
+  text-decoration: none;
+}
+.products-hero-container .hero-links a:hover {
+  text-decoration: underline;
+}
+.products-hero-container .hero-links i {
+  font-size: 0.8em;
+}
+
+.products-hero-container hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 40px 0;
+}
+
+/* --- Product Sections Grid --- */
+/* --- Product Sections Grid (Corrected) --- */
+.product-section {
+  display: flex;
+  flex-direction: row; /* Arrange children side-by-side */
+  gap: 60px;
+  align-items: center;
+  /* justify-content: space-between; */
+  margin-bottom: 80px;
+  /* padding: 0 20px; */
+}
+
+/* Make each child (text and image) take up half the space */
+.product-section > .product-text {
+  flex-basis: 50%; /* <--- Text gets 40% */
+  /* margin-right: 50px; */
+}
+.product-section > .product-image {
+  flex-basis: 50%; /* <--- Image gets 60% */
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* This reverses the order for the RightSection */
+.layout-right-image .product-text {
+  order: 1;
+}
+.layout-right-image .product-image {
+  order: 2;
+}
+
+.product-text h1 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin: 0 0 15px 0;
+}
+
+.product-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.product-links a {
+  display: inline-block;
+  margin-right: 25px;
+  margin-top: 10px;
+  color: #387ed1;
+  text-decoration: none;
+  font-weight: 500;
+}
+.product-links a:hover {
+  text-decoration: underline;
+}
+.product-links a i {
+  font-size: 0.8em;
+}
+
+.app-badges {
+  margin-top: 25px;
+}
+.app-badges img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+/* --- Tech Blog Link --- */
+.tech-blog-link {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+  margin: 80px 0;
+}
+.tech-blog-link a {
+  color: #387ed1;
+  text-decoration: none;
+}
+.tech-blog-link a:hover {
+  text-decoration: underline;
+}
+
+/* --- Universe Section --- */
+.universe-container {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.universe-container h1 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.universe-container > p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 50px;
+}
+
+.universe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.universe-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.universe-item img {
+  height: 40px;
+  margin-bottom: 15px;
+}
+
+.universe-item p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Re-using the button style from signup */
+.signup-hero-home {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #387ed1;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 50px;
+  transition: background-color 0.2s;
+}
+.signup-hero-home:hover {
+  background-color: #2a6abf;
+}
+
+
+
+
+/* --- Pricing Page Styles --- */
+
+.pricing-page-container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* --- Pricing Hero --- */
+.pricing-hero-container {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.pricing-hero-container h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #444;
+  margin: 0 0 15px 0;
+}
+
+.pricing-hero-container h3 {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #555;
+  margin: 0 0 40px 0;
+}
+
+.hero-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.hero-card {
+  flex-basis: 32%;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-card-img {
+  width: 80px;
+  height: 80px;
+}
+
+.hero-card-heading {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #444;
+  margin: 20px 0 10px 0;
+}
+
+.hero-card-desc {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* --- Table Tabs --- */
+.table-tabs-container {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.nav-item .nav-link {
+  font-size: 1.1rem;
+  color: #888;
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.nav-item .nav-link:hover {
+  color: #555;
+}
+
+.nav-item .nav-link.active {
+  color: #387ed1;
+  border-bottom: 2px solid #387ed1;
+}
+
+/* --- Pricing Table --- */
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+}
+
+.pricing-table th,
+.pricing-table td {
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.pricing-table th {
+  background-color: #f9f9f9;
+  font-weight: 600;
+  color: #555;
+}
+
+.pricing-table td:first-child {
+  font-weight: 600;
+  color: #444;
+}
+
+.pricing-table ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+/* --- Brokerage Calculator Link --- */
+.brokerage-calculator-link {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.brokerage-calculator-link a {
+  color: #387ed1;
+  text-decoration: none;
+}
+.brokerage-calculator-link a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* --- Support Page Styles --- */
+
+.support-page-container {
+  max-width: 1024px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* --- Support Hero & Search --- */
+.support-hero {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 60px;
+}
+
+.support-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #444;
+  margin: 0 0 10px 0;
+}
+
+.support-hero h2 {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #555;
+  margin: 0 0 25px 0;
+}
+
+.support-search-bar {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.support-search-bar i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+}
+
+.support-search-bar input {
+  width: 100%;
+  padding: 15px 15px 15px 45px;
+  font-size: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* --- Support Topics --- */
+.support-topics-container {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.support-topics-container h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+.support-topics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.support-topic-card {
+  border: 1px solid #e0e0e0;
+  padding: 30px 20px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.support-topic-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transform: translateY(-3px);
+  border-color: #387ed1;
+}
+
+.support-topic-card i {
+  font-size: 2.5rem;
+  color: #387ed1;
+  margin-bottom: 15px;
+}
+
+.support-topic-card h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #444;
+  margin: 0;
+}
+
+/* --- Support Contact --- */
+.support-contact {
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 40px;
+}
+
+.support-contact h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.support-contact p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* Make sure .btn-blue is defined in your CSS. 
+  If not, here is a copy from your other styles.
+*/
+.btn-blue {
+  background: #4184f3;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-blue:hover {
+  background: #74a7fa;
+}
+
+
+
+/* --- FAQ Section Styles --- */
+
+.faq-container {
+  max-width: 800px; /* Makes it look cleaner */
+  margin: 60px auto; /* Centers it */
+}
+
+.faq-container h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.faq-item:first-child {
+  border-top: 1px solid #e0e0e0;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+  cursor: pointer;
+}
+
+.faq-question h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #444;
+}
+
+.faq-question i {
+  color: #387ed1;
+  font-size: 1.1rem;
+}
+
+.faq-answer {
+  padding: 0 10px 20px 10px; /* Show below the question */
+}
+
+.faq-answer p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+
+/* Add this with your other .form_container styles */
+
+.form_container textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen";
+  resize: vertical;
+}

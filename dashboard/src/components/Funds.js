@@ -1,17 +1,68 @@
+// C:\Users\sjsak\Desktop\Coding\StockTradingPlatform\dashboard\src\components\Funds.js
+
 import React from "react";
-import { Link } from "react-router-dom";
-import { BuyContext } from "./GeneralContext.js";
-import BuyCard from "./BuyCard.js";
-import { useContext } from "react";
+import { Link } from "react-router-dom"; // Link is no longer needed for the button
+import { useFunds } from "./FundsContext.js";
+import axios from "axios";
 
 const Funds = () => {
-  const {buy,ToggleBuyCard} = useContext(BuyContext);
+  const { funds, refetchFunds } = useFunds();
+
+  const handleAddFunds = async () => {
+    const amount = prompt("How much would you like to add?", "1000");
+    if (!amount || isNaN(amount) || amount <= 0) return;
+
+    try {
+      const response = await axios.post(
+        "http://localhost:3002/api/funds/add",
+        { amount: Number(amount) },
+        { withCredentials: true }
+      );
+      if (response.data.success) {
+        alert(`Successfully added ₹${amount}.`);
+        refetchFunds(); // Refresh the balance
+      }
+    } catch (error) {
+      alert(`Error: ${error.response.data.message || "Server error"}`);
+    }
+  };
+
+  const handleWithdraw = async () => {
+    const amount = prompt("How much would you like to withdraw?", "500");
+    if (!amount || isNaN(amount) || amount <= 0) return;
+
+    try {
+      const response = await axios.post(
+        "http://localhost:3002/api/funds/withdraw",
+        { amount: Number(amount) },
+        { withCredentials: true }
+      );
+      if (response.data.success) {
+        alert(`Successfully withdrew ₹${amount}.`);
+        refetchFunds(); // Refresh the balance
+      }
+    } catch (error) {
+      alert(`Error: ${error.response.data.message || "Server error"}`);
+    }
+  };
+
+  // 1. Add the handler for the placeholder button
+  const handleOpenAccount = () => {
+    alert("This feature is not yet available.");
+  };
+
+  const totalValue = funds.availableCash + funds.usedMargin;
+
   return (
     <>
       <div className="funds">
         <p>Instant, zero-cost fund transfers with UPI </p>
-        <Link className="btn btn-green">Add funds</Link>
-        <Link className="btn btn-blue">Withdraw</Link>
+        <button className="btn btn-green" onClick={handleAddFunds}>
+          Add funds
+        </button>
+        <button className="btn btn-blue" onClick={handleWithdraw}>
+          Withdraw
+        </button>
       </div>
 
       <div className="row">
@@ -19,61 +70,23 @@ const Funds = () => {
           <span>
             <p>Equity</p>
           </span>
-
           <div className="table">
             <div className="data">
-              <p>Available margin</p>
-              <p className="imp colored">4,043.10</p>
+              <p>Available cash</p>
+              <p className="imp colored">{funds.availableCash.toFixed(2)}</p>
             </div>
             <div className="data">
               <p>Used margin</p>
-              <p className="imp">3,757.30</p>
+              <p className="imp">{funds.usedMargin.toFixed(2)}</p>
             </div>
             <div className="data">
-              <p>Available cash</p>
-              <p className="imp">4,043.10</p>
+              <p>Available margin</p>
+              <p className="imp">{funds.availableCash.toFixed(2)}</p>
             </div>
             <hr />
             <div className="data">
               <p>Opening Balance</p>
-              <p>4,043.10</p>
-            </div>
-            <div className="data">
-              <p>Opening Balance</p>
-              <p>3736.40</p>
-            </div>
-            <div className="data">
-              <p>Payin</p>
-              <p>4064.00</p>
-            </div>
-            <div className="data">
-              <p>SPAN</p>
-              <p>0.00</p>
-            </div>
-            <div className="data">
-              <p>Delivery margin</p>
-              <p>0.00</p>
-            </div>
-            <div className="data">
-              <p>Exposure</p>
-              <p>0.00</p>
-            </div>
-            <div className="data">
-              <p>Options premium</p>
-              <p>0.00</p>
-            </div>
-            <hr />
-            <div className="data">
-              <p>Collateral (Liquid funds)</p>
-              <p>0.00</p>
-            </div>
-            <div className="data">
-              <p>Collateral (Equity)</p>
-              <p>0.00</p>
-            </div>
-            <div className="data">
-              <p>Total Collateral</p>
-              <p>0.00</p>
+              <p>{totalValue.toFixed(2)}</p>
             </div>
           </div>
         </div>
@@ -81,7 +94,11 @@ const Funds = () => {
         <div className="col">
           <div className="commodity">
             <p>You don't have a commodity account</p>
-            <Link className="btn btn-blue">Open Account</Link>
+            
+            {/* 2. Change <Link> to <button> and add onClick */}
+            <button className="btn btn-blue" onClick={handleOpenAccount}>
+              Open Account
+            </button>
           </div>
         </div>
       </div>
